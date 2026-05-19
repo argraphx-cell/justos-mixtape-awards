@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --brand-orange: #e8611a;
+  --brand-black: #0a0a0a;
+}
+
+html, body {
+  background: var(--brand-black);
+  color: #f0f0f0;
+  font-family: 'Oswald', sans-serif;
+}

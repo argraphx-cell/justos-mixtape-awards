@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Justo's Mixtape Awards</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background: #0a0a0a;
+    }
+
+    .content {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -54%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(48px, 10vw, 96px);
+      color: #e8611a;
+      letter-spacing: 0.08em;
+      line-height: 1;
+      text-align: center;
+    }
+
+    .subtitle {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(28px, 6vw, 56px);
+      color: #f0f0f0;
+      letter-spacing: 0.18em;
+      line-height: 1;
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    .divider {
+      width: 60px;
+      height: 2px;
+      background: #e8611a;
+      margin-bottom: 32px;
+    }
+
+    .terminal-line {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 13px;
+      font-weight: 400;
+      color: #e8611a;
+      letter-spacing: 0.2em;
+      min-height: 1.4em;
+      min-width: 280px;
+      white-space: nowrap;
+      margin-bottom: 28px;
+    }
+
+    .cursor {
+      display: inline-block;
+      width: 0.55em;
+      height: 1em;
+      background: #e8611a;
+      vertical-align: middle;
+      margin-left: 3px;
+      flex-shrink: 0;
+      animation: cursor-blink 0.7s step-start infinite;
+    }
+
+    @keyframes cursor-blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+
+    .notify-wrapper {
+      width: 320px;
+      display: flex;
+      align-items: stretch;
+      border: 1px solid #3a200f;
+      background: #0a0a0a;
+    }
+
+    .notify-input {
+      flex: 1;
+      background: #0a0a0a;
+      border: none;
+      outline: none;
+      color: #e8611a;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px;
+      font-weight: 300;
+      letter-spacing: 0.12em;
+      padding: 10px 12px;
+      min-width: 0;
+    }
+
+    .notify-input::placeholder {
+      color: #3a200f;
+    }
+
+    .notify-input.confirmed::placeholder {
+      color: #e8611a;
+    }
+
+    .submit-btn {
+      background: #0a0a0a;
+      border: none;
+      border-left: 1px solid #3a200f;
+      color: #e8611a;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 16px;
+      padding: 10px 18px;
+      cursor: pointer;
+      flex-shrink: 0;
+      line-height: 1;
+      transition: background 0.15s;
+    }
+
+    .submit-btn:hover {
+      background: #1a0c04;
+    }
+
+    @media (max-width: 480px) {
+      .terminal-line { font-size: 11px; min-width: 220px; }
+      .notify-wrapper { width: 280px; }
+    }
+
+    .copyright {
+      position: fixed;
+      bottom: 20px;
+      left: 0;
+      right: 0;
+      text-align: center;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 10px;
+      font-weight: 300;
+      color: #2a2a2a;
+      letter-spacing: 0.12em;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="content">
+    <div class="title">THE JUSTO'S</div>
+    <div class="subtitle">MIXTAPE AWARDS</div>
+    <div class="divider"></div>
+
+    <div class="terminal-line">
+      <span id="termText"></span><span class="cursor"></span>
+    </div>
+
+    <div class="notify-wrapper">
+      <input
+        id="notifyInput"
+        class="notify-input"
+        type="tel"
+        placeholder="YOUR NUMBER"
+        autocomplete="off"
+      >
+      <button class="submit-btn" onclick="submitNotify()">&#8594;</button>
+    </div>
+  </div>
+
+  <div class="copyright">© 2026 THE JUSTO'S MIXTAPE AWARDS. ALL RIGHTS RESERVED.</div>
+
+  <script>
+    const WORDS = [
+      'NOMINATING…', 'DELIBERATING…', 'ARCHIVING…', 'CATALOGUING…',
+      'CURATING…', 'CERTIFYING…', 'HONORING…', 'INDUCTING…',
+      'PRESERVING…', 'RECOGNIZING…', 'CELEBRATING…', 'COMPILING…'
+    ];
+    const TYPE_MS = 130;
+    const PAUSE_MS = 2800;
+
+    const el = document.getElementById('termText');
+    let wi = 0, ci = 0;
+
+    function typeNext() {
+      const word = WORDS[wi];
+      if (ci < word.length) {
+        el.textContent = word.slice(0, ++ci);
+        setTimeout(typeNext, TYPE_MS);
+      } else {
+        setTimeout(function() {
+          wi = (wi + 1) % WORDS.length;
+          ci = 0;
+          el.textContent = '';
+          setTimeout(typeNext, TYPE_MS);
+        }, PAUSE_MS);
+      }
+    }
+
+    typeNext();
+
+    function submitNotify() {
+      var inp = document.getElementById('notifyInput');
+      var val = inp.value.trim();
+      if ((val.match(/\d/g) || []).length < 10) return;
+      var btn = inp.parentNode.querySelector('button');
+      inp.disabled = true;
+      btn.disabled = true;
+      fetch('https://justos-api.argraphx.workers.dev/api/notify', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ phone: val })
+      }).finally(function() {
+        inp.value = '';
+        inp.placeholder = 'NOTED. STAY TUNED.';
+        inp.classList.add('confirmed');
+        inp.disabled = false;
+        btn.disabled = false;
+      });
+    }
+  </script>
+</body>
+</html>

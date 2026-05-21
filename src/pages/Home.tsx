@@ -113,7 +113,7 @@ export default function Home() {
           ))}
         </div>
         <button className="ml-auto bg-brand-orange text-white font-body text-sm tracking-widest px-4 py-1.5 shrink-0 hover:opacity-90 transition-opacity">
-          SHOP NOW
+          GET MERCH
         </button>
       </nav>
 
@@ -215,36 +215,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── MERCH ── */}
-      <section className="bg-[#0d0d0d] border-y border-[#1e1e1e] px-6 py-28">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="font-display text-4xl text-[#f0ede6] tracking-wider mb-10">
-            Merch & Legacy Drops
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {MERCH.map((item, i) => (
-              <div key={i} className="border border-[#1e1e1e] bg-[#0a0a0a]">
-                <div className="h-56 relative flex items-center justify-center bg-[#0d0d0d] border-b border-[#1e1e1e] overflow-hidden">
-                  <div className="absolute top-3 left-3 w-6 h-6 border-t-2 border-l-2 border-brand-orange" />
-                  <div className="absolute top-3 right-3 w-6 h-6 border-t-2 border-r-2 border-brand-orange" />
-                  <div className="absolute bottom-3 left-3 w-6 h-6 border-b-2 border-l-2 border-brand-orange" />
-                  <div className="absolute bottom-3 right-3 w-6 h-6 border-b-2 border-r-2 border-brand-orange" />
-                  <img src={item.image} alt={item.name} className="w-full h-full object-cover" />
-                </div>
-                <div className="p-5">
-                  <p className="font-body text-lg text-[#f0ede6] mb-1">{item.name}</p>
-                  <p className="font-display text-2xl text-brand-orange">{item.price}</p>
-                  <p className="font-mono text-xs text-[#888888] tracking-widest uppercase mt-2">{item.tag}</p>
-                  <button className="mt-4 w-full border border-brand-orange text-brand-orange font-body text-sm tracking-widest py-2 hover:bg-brand-orange hover:text-white transition-colors">
-                    ADD TO CART
-                  </button>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* ── LEADERSHIP ── */}
       <section className="px-6 py-28 max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
         <div>
@@ -317,6 +287,36 @@ export default function Home() {
           <p className="font-mono text-xs text-[#888888] tracking-widest uppercase text-center">
             Justo at the ceremony · NYC 01.14.04
           </p>
+        </div>
+      </section>
+
+      {/* ── MERCH ── */}
+      <section className="bg-[#0d0d0d] border-y border-[#1e1e1e] px-6 py-28">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="font-display text-4xl text-[#f0ede6] tracking-wider mb-10">
+            Merch & Legacy Drops
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {MERCH.map((item, i) => (
+              <div key={i} className="border border-[#1e1e1e] bg-[#0a0a0a]">
+                <div className="h-56 relative flex items-center justify-center bg-[#0d0d0d] border-b border-[#1e1e1e] overflow-hidden">
+                  <div className="absolute top-3 left-3 w-6 h-6 border-t-2 border-l-2 border-brand-orange" />
+                  <div className="absolute top-3 right-3 w-6 h-6 border-t-2 border-r-2 border-brand-orange" />
+                  <div className="absolute bottom-3 left-3 w-6 h-6 border-b-2 border-l-2 border-brand-orange" />
+                  <div className="absolute bottom-3 right-3 w-6 h-6 border-b-2 border-r-2 border-brand-orange" />
+                  <img src={item.image} alt={item.name} className="w-full h-full object-cover" />
+                </div>
+                <div className="p-5">
+                  <p className="font-body text-lg text-[#f0ede6] mb-1">{item.name}</p>
+                  <p className="font-display text-2xl text-brand-orange">{item.price}</p>
+                  <p className="font-mono text-xs text-[#888888] tracking-widest uppercase mt-2">{item.tag}</p>
+                  <button className="mt-4 w-full border border-brand-orange text-brand-orange font-body text-sm tracking-widest py-2 hover:bg-brand-orange hover:text-white transition-colors">
+                    ADD TO CART
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 

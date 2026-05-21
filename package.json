@@ -9,7 +9,8 @@
     "preview": "vite preview",
     "check": "tsc",
     "deploy:worker": "wrangler deploy",
-    "deploy:pages": "wrangler pages deploy dist --project-name justos-mixtape-awards"
+    "deploy:pages": "wrangler pages deploy dist --project-name justos-mixtape-awards",
+    "deploy": "npm run build && npx wrangler pages deploy dist --project-name justos-mixtape-awards --branch main"
   },
   "dependencies": {
     "react": "^18.3.1",

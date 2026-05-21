@@ -1,18 +1,2 @@
 name = "justos-mixtape-awards"
 pages_build_output_dir = "dist"
-compatibility_date = "2024-09-23"
-
-[vars]
-SITE_MODE = "construction"
-
-# Uncomment and fill in your Cloudflare Account ID:
-# account_id = "YOUR_CLOUDFLARE_ACCOUNT_ID"
-
-# Worker is deployed to:
-#   https://justos-api.<your-subdomain>.workers.dev
-
-# Environment variables (set in Cloudflare dashboard → Worker → Settings → Variables):
-#   ADMIN_SECRET   — shared secret; client sends as x-admin-password header
-#   ADMIN_PASSWORD — password checked by POST /api/admin/login
-#   RESEND_API_KEY — email/SMS notifications via Resend (optional)
-# DO NOT put secrets here.

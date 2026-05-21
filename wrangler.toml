@@ -1,7 +1,6 @@
-name = "justos-api"
-main = "worker/index.js"
+name = "justos-mixtape-awards"
+pages_build_output_dir = "dist"
 compatibility_date = "2024-09-23"
-preview_urls = false
 
 [vars]
 SITE_MODE = "construction"

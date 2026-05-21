@@ -1,5 +1,7 @@
 import { useState } from "react";
 
+const R2 = "https://pub-e6686bb2bd5449a098c2599e135bfbbf.r2.dev";
+
 const winnersData: Record<string, { subtitle: string; venue: string; winners: { category: string; winner: string }[] }> = {
   "1997": {
     subtitle: "3rd Annual",
@@ -78,9 +80,9 @@ const winnersData: Record<string, { subtitle: string; venue: string; winners: { 
 const YEARS = ["1997", "1999", "2001", "2002", "2005", "2006", "2008"];
 
 const MERCH = [
-  { name: "Seal Logo Tee", price: "$38.00", tag: "Limited · Black/White" },
-  { name: "DJ Of The Year Hoodie", price: "$68.00", tag: "Limited · Black" },
-  { name: "Apollo '01 Commemorative Tee", price: "$42.00", tag: "Ceremony Series" },
+  { name: "Seal Logo Tee", price: "$38.00", tag: "Limited · Black/White", image: `${R2}/Logo1-Seal.png` },
+  { name: "DJ Of The Year Hoodie", price: "$68.00", tag: "Limited · Black", image: `${R2}/Product-Hoodie1.png` },
+  { name: "Justo Memorial Reef Hoodie", price: "$55.00", tag: "Ceremony Series", image: `${R2}/Product-Hoodie2.png` },
 ];
 
 const NAV_LINKS = ["Archive", "Shop", "Leadership", "About Justo"];
@@ -142,8 +144,8 @@ export default function Home() {
         </div>
 
         <div className="flex flex-col items-center gap-6">
-          <div className="w-[280px] h-[280px] shrink-0 rounded-full bg-[#0d0d0d] border-2 border-dashed border-brand-orange flex items-center justify-center">
-            <span className="font-mono text-[#888888] text-sm tracking-widest">Logo Asset</span>
+          <div className="w-[280px] h-[280px] shrink-0 rounded-full overflow-hidden border-2 border-brand-orange">
+            <img src={`${R2}/Logo2-Justo.png`} alt="Justo's Mixtape Awards — Portrait Seal" className="w-full h-full object-cover" />
           </div>
           <div className="text-center">
             <p className="font-mono text-xs text-[#888888] tracking-widest uppercase">In Memory Of</p>
@@ -227,14 +229,7 @@ export default function Home() {
                   <div className="absolute top-3 right-3 w-6 h-6 border-t-2 border-r-2 border-brand-orange" />
                   <div className="absolute bottom-3 left-3 w-6 h-6 border-b-2 border-l-2 border-brand-orange" />
                   <div className="absolute bottom-3 right-3 w-6 h-6 border-b-2 border-r-2 border-brand-orange" />
-                  <div className="flex flex-col items-center gap-3">
-                    <div className="w-16 h-16 rounded-full border border-[#2a2a2a] flex items-center justify-center">
-                      <div className="w-10 h-10 rounded-full border border-[#222222] flex items-center justify-center">
-                        <div className="w-3 h-3 rounded-full bg-brand-orange opacity-50" />
-                      </div>
-                    </div>
-                    <span className="font-mono text-[10px] text-[#333333] tracking-[0.2em] uppercase">No Image</span>
-                  </div>
+                  <img src={item.image} alt={item.name} className="w-full h-full object-cover" />
                 </div>
                 <div className="p-5">
                   <p className="font-body text-lg text-[#f0ede6] mb-1">{item.name}</p>
@@ -284,8 +279,8 @@ export default function Home() {
         </div>
 
         <div>
-          <div className="border border-[#1e1e1e] bg-[#0d0d0d] aspect-[4/3] flex items-center justify-center mb-4">
-            <span className="font-mono text-xs text-[#888888] tracking-widest">[ Photo Placeholder ]</span>
+          <div className="border border-[#1e1e1e] bg-[#0d0d0d] aspect-[4/3] overflow-hidden mb-4">
+            <img src={`${R2}/herc-slayer-red.jpg`} alt="Kool Herc, DJ Slayer, Kool DJ Red Alert" className="w-full h-full object-cover" />
           </div>
           <p className="font-body text-[#f0ede6] text-sm text-center">
             Kool Herc · DJ Slayer · Kool DJ Red Alert
@@ -314,13 +309,13 @@ export default function Home() {
         </div>
 
         <div>
-          <div className="relative border border-[#1e1e1e] bg-[#0d0d0d] aspect-[4/3] flex items-center justify-center mb-4">
-            <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-brand-orange" />
-            <span className="font-mono text-xs text-[#888888] tracking-widest">[ Image Placeholder ]</span>
-            <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-brand-orange" />
+          <div className="relative border border-[#1e1e1e] bg-[#0d0d0d] aspect-[4/3] overflow-hidden mb-4">
+            <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-brand-orange z-10" />
+            <img src={`${R2}/Justo-at-ceremony.jpg`} alt="Justo at the ceremony — NYC 01.14.04" className="w-full h-full object-cover" />
+            <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-brand-orange z-10" />
           </div>
           <p className="font-mono text-xs text-[#888888] tracking-widest uppercase text-center">
-            The ceremony tee · NYC 01.14.04
+            Justo at the ceremony · NYC 01.14.04
           </p>
         </div>
       </section>

@@ -215,11 +215,40 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ── STORY ── */}
+      <section className="border-t border-[#1e1e1e] px-6 py-28 max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+        <div>
+          <h2 className="font-display text-5xl text-[#f0ede6] tracking-wider leading-tight mb-6">
+            BEFORE STREAMING,<br />THERE WAS THE CASSETTE <span className="text-brand-orange">TAPE</span>.
+          </h2>
+          <p className="font-body text-[#888888] leading-relaxed mb-8">
+            In 1995, Orpheus 'Justo' Faison built infrastructure for the streets. A record
+            executive at Nervous Records — home to Black Moon and Smif-N-Wessun — then Atlantic
+            Records, where the roster included Aaliyah and Lil' Kim. He understood both sides of
+            the industry and chose to build something for the side it ignored.
+          </p>
+          <button className="font-body text-sm tracking-widest text-brand-orange hover:opacity-75 transition-opacity">
+            READ FULL STORY →
+          </button>
+        </div>
+
+        <div>
+          <div className="relative border border-[#1e1e1e] bg-[#0d0d0d] aspect-[4/3] overflow-hidden mb-4">
+            <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-brand-orange z-10" />
+            <img src={`${R2}/Justo-at-ceremony.jpg`} alt="Justo at the ceremony — NYC 01.14.04" className="w-full h-full object-cover" />
+            <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-brand-orange z-10" />
+          </div>
+          <p className="font-mono text-xs text-[#888888] tracking-widest uppercase text-center">
+            Justo at the ceremony · NYC 01.14.04
+          </p>
+        </div>
+      </section>
+
       {/* ── LEADERSHIP ── */}
       <section className="px-6 py-28 max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
         <div>
           <h2 className="font-display text-5xl text-[#f0ede6] tracking-wider leading-tight mb-6">
-            THE TORCH WAS PASSED.
+            HIS WORK LIVES ON.
           </h2>
           <p className="font-body text-[#888888] leading-relaxed mb-8">
             After the tragic passing of founder Justo Faison in May 2005, the Awards lived on.
@@ -257,35 +286,6 @@ export default function Home() {
           </p>
           <p className="font-mono text-xs text-[#888888] tracking-widest uppercase text-center mt-1">
             Owner & Chair flanked by hip-hop's founding fathers
-          </p>
-        </div>
-      </section>
-
-      {/* ── STORY ── */}
-      <section className="border-t border-[#1e1e1e] px-6 py-28 max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
-        <div>
-          <h2 className="font-display text-5xl text-[#f0ede6] tracking-wider leading-tight mb-6">
-            BEFORE STREAMING,<br />THERE WAS THE TAPE.
-          </h2>
-          <p className="font-body text-[#888888] leading-relaxed mb-8">
-            In 1995, Orpheus 'Justo' Faison built infrastructure for the streets. A record
-            executive at Nervous Records — home to Black Moon and Smif-N-Wessun — then Atlantic
-            Records, where the roster included Aaliyah and Lil' Kim. He understood both sides of
-            the industry and chose to build something for the side it ignored.
-          </p>
-          <button className="font-body text-sm tracking-widest text-brand-orange hover:opacity-75 transition-opacity">
-            READ FULL STORY →
-          </button>
-        </div>
-
-        <div>
-          <div className="relative border border-[#1e1e1e] bg-[#0d0d0d] aspect-[4/3] overflow-hidden mb-4">
-            <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-brand-orange z-10" />
-            <img src={`${R2}/Justo-at-ceremony.jpg`} alt="Justo at the ceremony — NYC 01.14.04" className="w-full h-full object-cover" />
-            <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-brand-orange z-10" />
-          </div>
-          <p className="font-mono text-xs text-[#888888] tracking-widest uppercase text-center">
-            Justo at the ceremony · NYC 01.14.04
           </p>
         </div>
       </section>
